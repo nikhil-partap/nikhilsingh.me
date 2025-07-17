@@ -2,11 +2,59 @@
 <html lang="">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
   </head>
+  <!-- this is how you write a comment whach is ignored by the compiler or what so ever  -->
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <h1>My Portfolio</h1>
+    </header>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm Nikhil, a passionate web developer. I love building beautiful and functional websites.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="projects-list">
+        <li>
+          <h3>Project One</h3>
+          <p>A simple HTML/CSS project to showcase my skills.</p>
+        </li>
+        <li>
+          <h3>Project Two</h3>
+          <p>A responsive website built with modern CSS techniques.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form class="contact-form" action="process.php" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+
   </body>
 </html>
