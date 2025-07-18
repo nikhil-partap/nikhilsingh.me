@@ -274,15 +274,16 @@
     </footer>
     <script>
       const hero = document.querySelector('.hero-section');
+
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 0) {
-          hero.classList.add('is-hidden');
-        } else {
+        if (window.scrollY <= 10) { // Use a threshold for mobile reliability
           hero.classList.remove('is-hidden');
+        } else {
+          hero.classList.add('is-hidden');
         }
       });
-    </script>
+    </script>       
 
-    <script src="script.js"></script>
+      <script src="script.js"></script>
   </body>  
 </html>
