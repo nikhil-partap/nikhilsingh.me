@@ -24,12 +24,19 @@
         <div class="nav-brand">
           <a href="#home">NS</a>
         </div>
+        <button class="nav-toggle" aria-label="Open navigation">
+          <!-- Hamburger SVG icon -->
+          <svg class="icon-hamburger" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <!-- Close SVG icon (hidden by default, toggled in JS) -->
+          <svg class="icon-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
         <ul class="nav-list">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <div class="mobile-nav-overlay"></div>
       </div>
     </nav>
     
@@ -37,7 +44,7 @@
       <h1>Nikhil Singh</h1>
       <p class="hero-subtitle">Full-Stack Web Developer & CS50 Student</p>
       <div class="hero-cta">
-        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#projects" class="btn-secondary">View My Work</a>
         <a href="#contact" class="btn-secondary">Get In Touch</a>
       </div>
     </div>
@@ -49,13 +56,16 @@
           <div class="about-content">
             <div class="about-text">
               <p class="lead">
-                Hi! I'm Nikhil, a passionate and dedicated web developer with a strong foundation in computer science and a love for creating innovative digital solutions.
+                I'm <strong>Nikhil Singh</strong>, an 18-year-old aspiring full-stack web developer, currently pursuing my B.Tech in Computer Science at Chitkara University. My journey into coding started back in 6th grade when I got curious about how games and websites are built. That small spark has turned into a full-blown fire.
               </p>
               <p>
-                Currently pursuing my education in Computer Science and Engineering, I'm also an active CS50 student, constantly expanding my knowledge in web development technologies. I specialize in building modern, responsive, and user-friendly web applications that solve real-world problems.
+                Right now, I'm doing the legendary <strong>CS50 course from Harvard</strong> to master computer science fundamentals while building serious real-world skills in <strong>HTML, CSS, C, Git, and web development</strong>. I'm also diving into system-level concepts like hash tables, stacks, and queues — writing them from scratch like a senior dev would.
               </p>
               <p>
-                My approach combines technical expertise with creative problem-solving, ensuring that every project I work on is not only functional but also delivers an exceptional user experience.
+                I built this site myself to showcase my learning and to prove that I don’t wait for “perfect timing” — I start, iterate, and grow in public. Outside of code, I’m someone who works with extreme focus, avoids distractions, and trains both body and mind. I believe in pushing beyond limits and using my skills to build the life I dream of 
+              </p>
+              <p id = contact_message>
+                If you're looking to collaborate, hire me, or just say hello — I’m always open to learning and working with people who value passion and discipline.
               </p>
             </div>
             <div class="about-stats">
@@ -86,17 +96,19 @@
                 <span class="skill-tag">HTML5</span>
                 <span class="skill-tag">CSS3</span>
                 <span class="skill-tag">JavaScript (ES6+)</span>
-                <span class="skill-tag">React.js</span>
-                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">Learning React.js</span>
+                <span class="skill-tag">Flexbox & Grid</span>
+                <span class="skill-tag">Basic DOM Manipulation</span>
               </div>
             </div>
             <div class="skill-category">
               <h3>Backend Development</h3>
               <div class="skill-items">
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Express.js</span>
-                <span class="skill-tag">RESTful APIs</span>
+                <span class="skill-tag">Backend & Systems Programming</span>
+                <span class="skill-tag">C Language (CS50 Projects)</span>
+                <span class="skill-tag">Shell & Command-Line Tools</span>
+                <span class="skill-tag">Learning Python & Express.js</span>
+                <span class="skill-tag">RESTful APIs</span> 
               </div>
             </div>
             <div class="skill-category">
@@ -104,8 +116,9 @@
               <div class="skill-items">
                 <span class="skill-tag">Git & GitHub</span>
                 <span class="skill-tag">VS Code</span>
-                <span class="skill-tag">Figma</span>
-                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">Figma(basic)</span>
+                <span class="skill-tag">Linux (EndeavourOS)</span>
+                <span class="skill-tag">Browser DevTools</span>
               </div>
             </div>
           </div>
@@ -121,16 +134,16 @@
                 <div class="project-placeholder">Project 1</div>
               </div>
               <div class="project-content">
-                <h3>E-Commerce Platform</h3>
-                <p>A full-stack e-commerce solution built with React, Node.js, and PostgreSQL. Features include user authentication, product management, shopping cart, and payment integration.</p>
+                <h3>Portfolio Website</h3>
+                <p>A clean, responsive portfolio site built from scratch using HTML5, CSS3 (Flexbox & Grid), and vanilla JavaScript. Features a fixed hero header, smooth scrolling, mobile‑first design, and GitHub Pages custom‑domain deployment.</p>
                 <div class="project-tech">
-                  <span class="tech-tag">React</span>
-                  <span class="tech-tag">Node.js</span>
-                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">HTML · CSS</span>
+                  <span class="tech-tag"> JavaScript · GitHub Pages</span>
+                  <span class="tech-tag">Responsive Design</span>
                 </div>
                 <div class="project-links">
-                  <a href="#" class="project-link">Live Demo</a>
-                  <a href="#" class="project-link">GitHub</a>
+                  <a href="https://nikhilsingh.me" class="project-link">Live Demo</a>
+                  <a href="https://github.com/nikhil-partap/nikhilsingh.me" class="project-link">GitHub</a>
                 </div>
               </div>
             </article>
@@ -140,16 +153,16 @@
                 <div class="project-placeholder">Project 2</div>
               </div>
               <div class="project-content">
-                <h3>Task Management App</h3>
-                <p>A responsive task management application with drag-and-drop functionality, real-time updates, and team collaboration features. Built with modern JavaScript and CSS Grid.</p>
+                <h3>CS50 “Speller” (Hash Table‑based Spell Checker)</h3>
+                <p>A A command‑line spelling corrector that loads a dictionary into a Hash Table data structure, then checks text input for misspelled words. Achieves near‑instant lookup, efficient memory use, and robust edge‑case handling.</p>
                 <div class="project-tech">
-                  <span class="tech-tag">JavaScript</span>
-                  <span class="tech-tag">CSS Grid</span>
-                  <span class="tech-tag">LocalStorage</span>
+                  <span class="tech-tag">C · Data Structures </span>
+                  <span class="tech-tag">Bit‑Level I/O</span>
+                  <span class="tech-tag">Memory Management</span>
                 </div>
                 <div class="project-links">
-                  <a href="#" class="project-link">Live Demo</a>
-                  <a href="#" class="project-link">GitHub</a>
+                  <a href="https://github.com/nikhil-partap/CS50--log/tree/main/CS%2050/week5_problems/speller" class="project-link">Code & Write‑Up</a>
+                  <!-- <a href="#" class="project-link">GitHub</a> -->
                 </div>
               </div>
             </article>
@@ -178,7 +191,7 @@
 
       <section id="contact">
         <div class="container">
-          <h2>Get In Touch</h2>
+          <h2 id = "contact_heading">Get In Touch</h2>
           <div class="contact-content">
             <div class="contact-info">
               <h3>Let's Work Together</h3>
