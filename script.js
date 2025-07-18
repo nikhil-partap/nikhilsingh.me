@@ -4,20 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const navToggle = document.querySelector('.nav-toggle');
   const navList = document.querySelector('.nav-list');
   const overlay = document.querySelector('.mobile-nav-overlay');
-  const iconHamburger = document.querySelector('.icon-hamburger');
   const iconClose = document.querySelector('.icon-close');
+  // No hamburger icon now, using NS logo
 
   function openMenu() {
     navList.classList.add('open');
     overlay.classList.add('active');
-    iconHamburger.style.display = 'none';
     iconClose.style.display = 'block';
     document.body.style.overflow = 'hidden';
   }
   function closeMenu() {
     navList.classList.remove('open');
     overlay.classList.remove('active');
-    iconHamburger.style.display = 'block';
     iconClose.style.display = 'none';
     document.body.style.overflow = '';
   }
