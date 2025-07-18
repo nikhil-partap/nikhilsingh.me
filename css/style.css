@@ -508,6 +508,14 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .icon-hamburger {
+    display: block;
+  }
+  
+  .icon-close {
+    display: none;
+  }
+  
   .container {
     padding: 0 1rem;
   }
@@ -615,10 +623,11 @@ footer {
     padding: 6rem 2rem 2rem 2rem;
     transition: left 0.35s cubic-bezier(0.77,0.2,0.05,1.0);
     z-index: 1100;
-    display: flex;
+    display: none;
   }
   .nav-list.open {
     left: 0;
+    display: flex !important;
   }
   .mobile-nav-overlay {
     display: none;
@@ -647,12 +656,6 @@ footer {
     position: relative;
   }
   /* Hide nav-list on mobile by default, show toggle */
-  .nav-list {
-    display: none;
-  }
-  .nav-list.open {
-    display: flex;
-  }
   .nav-toggle {
     display: block;
   }

@@ -24,11 +24,22 @@
         <div class="nav-brand">
           <a href="#home">NS</a>
         </div>
-        <button class="nav-toggle" aria-label="Open navigation">
-          <span class="nav-toggle-logo">NS</span>
-          <!-- Close SVG icon (hidden by default, toggled in JS) -->
-          <svg class="icon-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <!-- Hamburger icon (visible by default) -->
+          <svg class="icon-hamburger" width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6"  x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <!-- Close icon (hidden by default) -->
+          <svg class="icon-close"  width="28" height="28" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6"  x2="6"  y2="18"/>
+            <line x1="6"  y1="6"  x2="18" y2="18"/>
+          </svg>
         </button>
+        
         <ul class="nav-list">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -271,5 +282,7 @@
         }
       });
     </script>
+
+    <script src="script.js"></script>
   </body>  
 </html>
