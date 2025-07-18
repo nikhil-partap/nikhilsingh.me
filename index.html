@@ -221,7 +221,7 @@
                 </div>
               </div>
             </div>
-            <form class="contact-form" action="https://formspree.io/f/mvgqgvor" method="post">
+            <form id="contact_id" class="contact-form" action="https://formspree.io/f/mvgqgvor" method="post">
               <div class="form-group">
                 <label for="name">Full Name *</label>
                 <input type="text" id="name" name="name" required placeholder="Enter your full name">
@@ -244,6 +244,35 @@
               
               <button type="submit" class="btn-primary">Send Message</button>
             </form>
+            <script>
+              const form = document.getElementById("contact_id");
+              const status = document.getElementById("status");
+            
+              form.addEventListener("submit", async (e) => {
+                e.preventDefault(); // Stop normal form submit
+                const data = new FormData(form);
+            
+                try {
+                  const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                      'Accept': 'application/json'
+                    }
+                  });
+            
+                  if (response.ok) {
+                    status.innerHTML = "✅ Message sent!";
+                    form.reset(); // ✅ this line clears all inputs
+                  } else {
+                    status.innerHTML = "❌ Something went wrong. Try again.";
+                  }
+                } catch (error) {
+                  status.innerHTML = "❌ Could not submit the form.";
+                }
+              });
+            </script>
+            
           </div>
         </div>
       </section>
