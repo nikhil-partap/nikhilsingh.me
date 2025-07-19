@@ -41,7 +41,6 @@ I’m Nikhil Singh, a passionate first-year Computer Science student at Chitkara
 I’m currently focused on:
 - Learning Full-Stack Web Development
 - Building real-world projects and solving CS50 assignments
-- Freelancing to fund my journey and grow professionally
 
 ---
 
