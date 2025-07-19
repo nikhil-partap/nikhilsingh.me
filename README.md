@@ -52,3 +52,15 @@ You can clone this repo and run the site locally without any server.
 ```bash
 git clone https://github.com/nikhil-partap/nikhilsingh.me.git
 cd nikhilsingh.me
+```
+
+
+
+
+## 📫 Contact
+
+Built by Nikhil Singh — feel free to reach out via [nikhilpartap.web@gmail.com](mailto:nikhilpartap.web@gmail.com)
+
+Connect with me:
+[Portfolio](https://nikhilsingh.me) · [GitHub](https://github.com/nikhil-partap) · [LinkedIn](https://www.linkedin.com/in/nikhil-partap)
+
