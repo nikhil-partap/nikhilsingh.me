@@ -45,10 +45,26 @@ I’m currently focused on:
 
 ---
 
-## 🧪 How to Run Locally
+## 💻 Getting Started
 
-You can clone this repo and run the site locally without any server.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/nikhil-partap/nikhilsingh.me.git
+   cd nikhilsingh.me
 
-```bash
-git clone https://github.com/nikhil-partap/nikhilsingh.me.git
-cd nikhilsingh.me
+``markdown
+## 🤝 Contributing
+
+This is a personal portfolio project, so no formal contribution workflow is needed. If you spot an issue or typo, feel free to submit a pull request.
+
+---
+
+
+
+## 📫 Contact
+
+Built by Nikhil Singh — feel free to reach out via [nikhilpartap.web@gmail.com](mailto:nikhilpartap.web@gmail.com)
+
+Connect with me:
+[Portfolio](https://nikhilsingh.me) · [GitHub](https://github.com/nikhil-partap) · [LinkedIn](https://www.linkedin.com/in/nikhil-partap)
+
