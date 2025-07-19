@@ -687,6 +687,9 @@ footer {
   .icon-hamburger {
     display: block;
   }
+  body {
+    padding-top: 425px;
+  }
   
   .icon-close {
     display: none;
@@ -763,7 +766,7 @@ footer {
   }
   
   body {
-    padding-top: 320px;
+    padding-top: 408px;
   }
   
   section {
