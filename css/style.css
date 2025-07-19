@@ -9,7 +9,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #2d3748;
-  line-height: 1.6;
+  line-height: 1.25;
   min-height: 100vh;
   padding-top: 280px; /* Account for fixed navigation + hero section */
 }
@@ -126,11 +126,13 @@ p {
   z-index: 1000;
   padding: 2rem 1rem;
   text-align: center;
-  transition: transform 0.6s ease;
+  transition: transform 1.0s ease-out;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
 .hero-section.is-hidden {
   transform: translateY(-100%);
+  transition: transform 0.4s ease-in;
 }
 
 
@@ -169,7 +171,7 @@ p {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
@@ -320,7 +322,20 @@ section:nth-child(even) {
   justify-content: center;
   color: white;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 600;  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
 }
 
 .project-content {
@@ -498,11 +513,11 @@ footer {
   color: #667eea;
 }
 
-.footer-bottom {
+.footer-bottom p {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.6);
+  color: #ffffff;
   font-size: 0.9rem;
 }
 
@@ -563,7 +578,7 @@ footer {
 
 @media (max-width: 480px) {
   .nav-container {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
   }
   
@@ -578,7 +593,7 @@ footer {
   
   .hero-section {
     padding: 1rem;
-    top: 120px; /* Adjust for taller mobile navigation */
+    top: 70px; /* Adjust for taller mobile navigation */
   }
   
   body {
