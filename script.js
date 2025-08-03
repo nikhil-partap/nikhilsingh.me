@@ -2,12 +2,103 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all features
+    initializeThemeSystem();
     initializeNavigation();
     initializeAnimations();
     initializeFormHandling();
     initializeScrollEffects();
     initializePerformanceOptimizations();
 });
+
+// ===== THEME SYSTEM =====
+function initializeThemeSystem() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Get saved theme or use system preference
+    function getInitialTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            return savedTheme;
+        }
+        return prefersDarkScheme.matches ? 'dark' : 'light';
+    }
+    
+    // Apply theme to document
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        
+        // Update theme toggle button aria-label
+        if (themeToggle) {
+            themeToggle.setAttribute('aria-label', 
+                theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        }
+        
+        // Dispatch custom event for theme change
+        window.dispatchEvent(new CustomEvent('themechange', { 
+            detail: { theme } 
+        }));
+    }
+    
+    // Toggle theme
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+        
+        // Add a subtle animation to the toggle button
+        if (themeToggle) {
+            themeToggle.style.transform = themeToggle.style.transform.includes('translateY') 
+                ? themeToggle.style.transform.replace('scale(1)', 'scale(0.9)')
+                : 'scale(0.9)';
+            
+            setTimeout(() => {
+                themeToggle.style.transform = themeToggle.style.transform.replace('scale(0.9)', 'scale(1)');
+            }, 150);
+        }
+        
+        // Track theme toggle event
+        trackEvent('theme_toggle', { theme: newTheme });
+    }
+    
+    // Initialize theme
+    applyTheme(getInitialTheme());
+    
+    // Theme toggle event listener
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Keyboard support
+        themeToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
+    }
+    
+    // Listen for system theme changes
+    prefersDarkScheme.addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+    
+    // Handle theme-specific meta tag updates
+    window.addEventListener('themechange', function(e) {
+        const themeColor = e.detail.theme === 'dark' ? '#0f172a' : '#ffffff';
+        let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        
+        if (!metaThemeColor) {
+            metaThemeColor = document.createElement('meta');
+            metaThemeColor.name = 'theme-color';
+            document.head.appendChild(metaThemeColor);
+        }
+        
+        metaThemeColor.content = themeColor;
+    });
+}
 
 // ===== NAVIGATION SYSTEM =====
 function initializeNavigation() {
@@ -88,10 +179,14 @@ function initializeScrollEffects() {
         const currentScrollY = window.scrollY;
         
         if (currentScrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.background = document.documentElement.getAttribute('data-theme') === 'dark' 
+                ? 'rgba(15, 23, 42, 0.98)' 
+                : 'rgba(255, 255, 255, 0.98)';
             navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.background = document.documentElement.getAttribute('data-theme') === 'dark' 
+                ? 'rgba(15, 23, 42, 0.95)' 
+                : 'rgba(255, 255, 255, 0.95)';
             navbar.style.boxShadow = '0 1px 2px 0 rgb(0 0 0 / 0.05)';
         }
 
@@ -107,6 +202,11 @@ function initializeScrollEffects() {
                 scrollTimeout = null;
             }, 10);
         }
+    });
+
+    // Update navbar on theme change
+    window.addEventListener('themechange', function() {
+        handleNavbarScroll();
     });
 
     // Smooth scroll for all anchor links
@@ -237,6 +337,25 @@ function initializeAnimations() {
 
         .btn-primary:hover::before, .btn-secondary:hover::before {
             left: 100%;
+        }
+
+        /* Theme toggle animation */
+        .theme-toggle {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .theme-toggle svg {
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .theme-toggle:active {
+                transform: scale(0.95);
+            }
         }
     `;
     document.head.appendChild(style);
