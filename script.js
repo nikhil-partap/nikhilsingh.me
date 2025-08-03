@@ -1,6 +1,9 @@
 // Professional Portfolio JavaScript - Enhanced with Modern Features
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize loading animation
+    initializePageLoader();
+    
     // Initialize all features
     initializeNavigation();
     initializeThemeToggle();
@@ -9,6 +12,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     initializePerformanceOptimizations();
 });
+
+// ===== PAGE LOADER =====
+function initializePageLoader() {
+    const loader = document.getElementById('pageLoader');
+    
+    // Hide loader after page is fully loaded
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            // Remove loader from DOM after animation
+            setTimeout(() => {
+                loader.remove();
+            }, 500);
+        }, 800); // Show loader for at least 800ms for professional feel
+    });
+}
 
 // ===== NAVIGATION SYSTEM =====
 function initializeNavigation() {
@@ -143,6 +162,7 @@ function initializeThemeToggle() {
 // ===== SCROLL EFFECTS =====
 function initializeScrollEffects() {
     const navbar = document.querySelector('.navbar');
+    const scrollProgress = document.getElementById('scrollProgress');
     let lastScrollY = window.scrollY;
 
     // Navbar scroll effect
@@ -158,6 +178,14 @@ function initializeScrollEffects() {
         // Update navbar background based on current theme
         if (window.updateNavbarBackground) {
             window.updateNavbarBackground();
+        }
+        
+        // Update scroll progress indicator
+        if (scrollProgress) {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + '%';
         }
 
         lastScrollY = currentScrollY;
@@ -208,7 +236,8 @@ function initializeAnimations() {
                 
                 // Add stagger effect for grid items
                 if (entry.target.classList.contains('skills-grid') || 
-                    entry.target.classList.contains('projects-grid')) {
+                    entry.target.classList.contains('projects-grid') ||
+                    entry.target.classList.contains('testimonials-grid')) {
                     const items = entry.target.children;
                     Array.from(items).forEach((item, index) => {
                         setTimeout(() => {
@@ -226,6 +255,7 @@ function initializeAnimations() {
         .about-content,
         .skills-grid,
         .projects-grid,
+        .testimonials-grid,
         .contact-content,
         .hero-section,
         section h2
@@ -302,6 +332,30 @@ function initializeAnimations() {
 
         .btn-primary:hover::before, .btn-secondary:hover::before {
             left: 100%;
+        }
+        
+        /* Professional scroll indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-500), var(--accent-purple), var(--accent-emerald));
+            z-index: 9999;
+            transition: width 0.1s ease-out;
+        }
+        
+        /* Smooth reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
         }
     `;
     document.head.appendChild(style);
