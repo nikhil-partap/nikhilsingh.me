@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all features
     initializeNavigation();
+    initializeThemeToggle();
     initializeAnimations();
     initializeFormHandling();
     initializeScrollEffects();
@@ -78,6 +79,67 @@ function initializeNavigation() {
     });
 }
 
+// ===== THEME TOGGLE SYSTEM =====
+function initializeThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const sunIcon = document.querySelector('.sun-icon');
+    const moonIcon = document.querySelector('.moon-icon');
+    const html = document.documentElement;
+
+    // Check for saved theme preference or default to 'light'
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply the saved theme
+    setTheme(savedTheme);
+
+    // Theme toggle event listener
+    themeToggle?.addEventListener('click', function() {
+        const currentTheme = html.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+    });
+
+    function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        
+        // Update icon visibility
+        if (theme === 'dark') {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        } else {
+            sunIcon.style.display = 'block';
+            moonIcon.style.display = 'none';
+        }
+        
+        // Update navbar background for scroll effects
+        updateNavbarBackground();
+    }
+
+    function updateNavbarBackground() {
+        const navbar = document.querySelector('.navbar');
+        const currentTheme = html.getAttribute('data-theme') || 'light';
+        const currentScrollY = window.scrollY;
+        
+        if (currentTheme === 'dark') {
+            if (currentScrollY > 100) {
+                navbar.style.background = 'rgba(30, 41, 59, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(30, 41, 59, 0.95)';
+            }
+        } else {
+            if (currentScrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        }
+    }
+
+    // Expose updateNavbarBackground for use in scroll effects
+    window.updateNavbarBackground = updateNavbarBackground;
+}
+
 // ===== SCROLL EFFECTS =====
 function initializeScrollEffects() {
     const navbar = document.querySelector('.navbar');
@@ -88,11 +150,14 @@ function initializeScrollEffects() {
         const currentScrollY = window.scrollY;
         
         if (currentScrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
             navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
             navbar.style.boxShadow = '0 1px 2px 0 rgb(0 0 0 / 0.05)';
+        }
+
+        // Update navbar background based on current theme
+        if (window.updateNavbarBackground) {
+            window.updateNavbarBackground();
         }
 
         lastScrollY = currentScrollY;
