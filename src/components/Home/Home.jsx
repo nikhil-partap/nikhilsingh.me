@@ -1,47 +1,67 @@
 import React from "react";
-import { Link } from "react-router-dom";      
+import { Link } from "react-router-dom";
 
 
 export default function Home() {
     return (
-        <div className="mx-auto w-full max-w-7xl">
-            <aside className="relative overflow-hidden text-black rounded-lg sm:mx-16 mx-2 sm:py-16">
-                <div className="relative z-10 max-w-screen-xl px-4  pb-20 pt-10 sm:py-24 mx-auto sm:px-6 lg:px-8">
-                    <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center sm:text-right sm:ml-auto">
-                        <h2 className="text-4xl font-bold sm:text-5xl">
-                            Download Now
-                            <span className="hidden sm:block text-4xl">Lorem Ipsum</span>
-                        </h2>
-
-                        <Link
-                            className="inline-flex text-white items-center px-6 py-3 font-medium bg-orange-700 rounded-lg hover:opacity-75"
-                            to="/"
-                        >
-                            <svg
-                                fill="white"
-                                width="24"
-                                height="24"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                            >
-                                <path d="M1.571 23.664l10.531-10.501 3.712 3.701-12.519 6.941c-.476.264-1.059.26-1.532-.011l-.192-.13zm9.469-11.56l-10.04 10.011v-20.022l10.04 10.011zm6.274-4.137l4.905 2.719c.482.268.781.77.781 1.314s-.299 1.046-.781 1.314l-5.039 2.793-4.015-4.003 4.149-4.137zm-15.854-7.534c.09-.087.191-.163.303-.227.473-.271 1.056-.275 1.532-.011l12.653 7.015-3.846 3.835-10.642-10.612z" />
-                            </svg>
-                            &nbsp; Download now
-                        </Link>
+        <div className="bg-black min-h-screen text-white">
+            {/* HERO */}
+            <section className="flex flex-col items-center justify-center h-[70vh] text-center relative">
+                <video
+                    className="absolute inset-0 w-full h-full object-cover opacity-59 pointer-events-none"
+                    autoPlay muted loop playsInline
+                >
+                    <source src="/videos/cube.mp4" type="video/mp4" />
+                </video>
+                <div className="relative z-10 max-w-2xl">
+                    <h1 className="text-4xl sm:text-5xl font-bold mb-2">
+                        Hi, I'm Nikhil Singh
+                    </h1>
+                    <p className="text-lg text-gray-300 mb-6 font-medium">
+                        Full-stack Web Developer | CS50x Certified | Building high-impact web products.
+                    </p>
+                    <div className="flex justify-center gap-4">
+                        <Link to="/projects" className="px-5 py-2 rounded-lg text-cyan-400 border border-cyan-400 hover:bg-cyan-400 hover:text-black transition font-semibold">View Projects</Link>
+                        <Link to="/contact" className="px-5 py-2 rounded-lg bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition">Contact Me</Link>
                     </div>
                 </div>
+            </section>
 
-                <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
-                    <img className="w-96" src="https://i.ibb.co/5BCcDYB/Remote2.png" alt="image1" />
+            {/* SOCIAL PROOF */}
+            <section className="mt-8 mb-4 text-center">
+                <p className="text-sm text-gray-400">Built 10+ projects · CS50 graduate · Open for freelance & internships</p>
+            </section>
+
+            {/* PROJECTS GRID */}
+            <section className="mt-8 max-w-4xl mx-auto">
+                <h2 className="text-2xl font-bold mb-6 text-cyan-400 text-center">Featured Projects</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Repeat these for real projects */}
+                    <div className="bg-gray-900/70 rounded-lg p-6">
+                        <img src="project1.jpg" alt="Project" className="mb-3 rounded" />
+                        <h3 className="font-bold text-lg mb-2">Professional Weather App</h3>
+                        <p className="text-gray-300 mb-2">Real-time weather forecasts with temperature, humidity, and location-aware updates, built with React and modern APIs.</p>
+                        <a href="https://github.com/nikhil-partap/Skywatch" target="_blank" className="text-cyan-400 pr-7 hover:underline">View on GitHub</a>
+                        <a href="https://nikhil-partap.github.io/Skywatch/" target="_blank" className="text-cyan-400 hover:underline">Live Demo</a>
+                    </div>
+                    <div className="bg-gray-900/70 rounded-lg p-6">
+                        <img src="project1.jpg" alt="Project" className="mb-3 rounded" />
+                        <h3 className="font-bold text-lg mb-2">CS50 Speller - Hash Table Spell Checker</h3>
+                        <p className="text-gray-300 mb-2">A high-performance command-line spell checker implementing a custom hash table data structure in C.</p>
+                        <a href="https://github.com/nikhil-partap/CS50--log/tree/main/week5_problems/speller" target="_blank" className="text-cyan-400 pr-7 hover:underline">View on GitHub</a>
+                        {/* <a href="https://nikhil-partap.github.io/Skywatch/" target="_blank" className="text-cyan-400 hover:underline">Live Demo</a> */}
+                    </div>
                 </div>
-            </aside>
+            </section>
 
-            <div className="grid  place-items-center sm:mt-20">
-                <img className="sm:w-96 w-48" src="https://i.ibb.co/2M7rtLk/Remote1.png" alt="image2" />
-            </div>
-
-            <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">Lorem Ipsum Yojo</h1>
+            {/* BRIEF ABOUT */}
+            <section className="py-10 max-w-3xl mx-auto text-center">
+                <h2 className="text-xl font-semibold mb-2 text-cyan-400">About Me</h2>
+                <p className="text-gray-300">
+                    CS undergrad, deep into DSA and full-stack dev. I code at 4:30AM, obsessed with results. Let's ship something meaningful—fast.
+                </p>
+            </section>
         </div>
+
     );
 }

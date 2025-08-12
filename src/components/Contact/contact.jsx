@@ -2,141 +2,161 @@ import React from "react";
 
 export default function Contact() {
     return (
-        <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
-            <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div className="mt-8 overflow-hidden">
-                    <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="p-6 mr-2 bg-gray-100 sm:rounded-lg">
-                            <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight">
-                                Get in touch: 
-                            </h1>
-                            <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 mt-2">
-                                Fill in the form to start a conversation
+        <div className="" >
+            <section
+                className="bg-black text-white pt-16 pb-40 bg-center bg-cover relative"
+                style={{ backgroundImage: "url('/images/contact_bg.png')" }}
+            >
+                {/* Optional dark overlay for readability */}
+                <div className="inset-0 bg-black/70">
+
+                    <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
+
+                        {/* Left Contact Info */}
+                        <div>
+                            <h2 className="text-3xl font-bold text-cyan-400 mb-4">Get in touch</h2>
+                            <p className="text-gray-300 mb-8">
+                                Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu.
+                                Sed ut tincidunt integer elementum id sem. Arcu sed malesuada et magna.
                             </p>
 
-                            <div className="flex items-center mt-8 text-gray-600">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-gray-500"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                    />
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                    />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    Acme Inc, Street, State, Postal Code
+                            <dl className="space-y-6">
+                                <div>
+                                    <dt className="flex items-center gap-3 font-semibold text-lg">
+                                        <svg
+                                            className="w-6 h-6 text-cyan-400"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.5"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                        Address
+                                    </dt>
+                                    <dd className="text-gray-400 ml-9">
+                                        545 Mavis Island<br />Chicago, IL 99191
+                                    </dd>
                                 </div>
-                            </div>
 
-                            <div className="flex items-center mt-4 text-gray-600">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-gray-500"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                    />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    +44 1234567890
+                                <div>
+                                    <dt className="flex items-center gap-3 font-semibold text-lg">
+                                        <svg
+                                            className="w-6 h-6 text-cyan-400"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.5"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25A2.25 2.25 0 0 0 21.75 19.5v-1.372a1.125 1.125 0 0 0-.852-1.091l-4.423-1.106a1.125 1.125 0 0 0-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102A1.125 1.125 0 0 0 5.872 2.25H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                        Telephone
+                                    </dt>
+                                    <dd className="text-gray-400 ml-9">
+                                        <a
+                                            href="tel:+1 (555) 234-5678"
+                                            className="hover:text-cyan-400 transition"
+                                        >
+                                            +1 (555) 234-5678
+                                        </a>
+                                    </dd>
                                 </div>
-                            </div>
 
-                            <div className="flex items-center mt-2 text-gray-600">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-gray-500"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                    />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    info@acme.org
+                                <div>
+                                    <dt className="flex items-center gap-3 font-semibold text-lg">
+                                        <svg
+                                            className="w-6 h-6 text-cyan-400"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.5"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15A2.25 2.25 0 0 0 2.25 6.75v.243a2.25 2.25 0 0 0 1.07 1.916l7.5 4.615a2.25 2.25 0 0 0 2.36 0l7.5-4.615a2.25 2.25 0 0 0 1.07-1.916V6.75"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                        Email
+                                    </dt>
+                                    <dd className="text-gray-400 ml-9">
+                                        <a
+                                            href="mailto:hello@example.com"
+                                            className="hover:text-cyan-400 transition"
+                                        >
+                                            hello@example.com
+                                        </a>
+                                    </dd>
                                 </div>
-                            </div>
+                            </dl>
                         </div>
 
-                        <form className="p-6 flex flex-col justify-center">
-                            <div className="flex flex-col">
-                                <label for="name" className="hidden">
-                                    Full Name
-                                </label>
-                                <input
-                                    type="name"
-                                    name="name"
-                                    id="name"
-                                    placeholder="Full Name"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                />
+                        {/* Contact Form */}
+                        <form className="space-y-6">
+                            <div className="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label htmlFor="first-name" className="block mb-2 text-sm font-medium">First name</label>
+                                    <input
+                                        id="first-name"
+                                        type="text"
+                                        className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="last-name" className="block mb-2 text-sm font-medium">Last name</label>
+                                    <input
+                                        id="last-name"
+                                        type="text"
+                                        className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
+                                    />
+                                </div>
                             </div>
 
-                            <div className="flex flex-col mt-2">
-                                <label for="email" className="hidden">
-                                    Email
-                                </label>
+                            <div>
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium">Email</label>
                                 <input
-                                    type="email"
-                                    name="email"
                                     id="email"
-                                    placeholder="Email"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                                    type="email"
+                                    className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
                                 />
                             </div>
 
-                            <div className="flex flex-col mt-2">
-                                <label for="tel" className="hidden">
-                                    Number
-                                </label>
+                            <div>
+                                <label htmlFor="phone-number" className="block mb-2 text-sm font-medium">Phone number</label>
                                 <input
+                                    id="phone-number"
                                     type="tel"
-                                    name="tel"
-                                    id="tel"
-                                    placeholder="Telephone Number"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                                    className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
                                 />
+                            </div>
+
+                            <div>
+                                <label htmlFor="message" className="block mb-2 text-sm font-medium">Message</label>
+                                <textarea
+                                    id="message"
+                                    rows="4"
+                                    className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
+                                ></textarea>
                             </div>
 
                             <button
                                 type="submit"
-                                className="md:w-32 bg-orange-700 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
+                                className="w-full py-3 px-6 rounded-lg bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition focus:ring focus:ring-cyan-400/50"
                             >
-                                Submit
+                                Send message
                             </button>
                         </form>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

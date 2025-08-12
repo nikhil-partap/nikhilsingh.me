@@ -6,8 +6,9 @@ import Home from "./components/Home/Home.jsx";
 import About from "./components/About/About.jsx";
 import Contact from "./components/Contact/contact.jsx";
 import User from "./components/User/User.jsx";
-import Github, {githubInfoLoader} from "./components/Github/Github.jsx";
+import Github, { githubInfoLoader } from "./components/Github/Github.jsx";
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import Projects from './components/Projects/Projects.jsx';
 
 
 const router = createBrowserRouter(
@@ -18,8 +19,9 @@ const router = createBrowserRouter(
       <Route path='/contact' element={<Contact />} />
       <Route path='/user/:id' element={<User />} />
       <Route path='/github' element={<Github />} loader={githubInfoLoader} />
+      <Route path='/projects' element={<Projects />} />
     </Route>
-    
+
   )
 )
 
