@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {useLoaderData} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 export default function Github() {
   const data = useLoaderData();
@@ -24,6 +24,6 @@ export default function Github() {
 }
 
 export const githubInfoLoader = async () => {
-  const response = await fetch("https://api.github.com/users/nikhil-partap");
+  const response = await fetch('/api/github/users/nikhil-partap');
   return response.json();
 };
