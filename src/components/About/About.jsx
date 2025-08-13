@@ -6,13 +6,13 @@ export default function About() {
     return (
         <div className="py-16 bg-black bg-center bg-cover h-auto " style={{
             backgroundImage:
-                "url('/src/assets/bg-About.png')",
+                "url('/images/bg-About.png')",
         }} >
             <div className="container m-auto px-6 text-gray-600 md:px-12 xl:px-6">
                 <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
                     <div className="md:5/12 lg:w-5/12">
                         <img
-                            src="/src/assets/about_img2.png"
+                            src="/images/about_img2.png"
                             alt="Nikhil Singh avatar"
                             className={`mx-auto mb-8 object-cover rounded-full border-4 border-cyan-400 shadow-cyan-800 shadow-lg ${isMobile ? "w-52 h-52" : "w-[482px] h-[482px]"
                                 }`}
