@@ -10,7 +10,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="mb-8 md:mb-0">
                         <Link to="/" className="flex items-center">
-                            <img src="/src/assets/Logo.png" className="mr-3 h-41" alt="Logo" />
+                            <img src="/images/Logo.png" className="mr-3 h-41" alt="Logo" />
                         </Link>
                     </div>
                     {/* Columns */}
