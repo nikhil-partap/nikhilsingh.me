@@ -4,29 +4,29 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 const Projects = () => {
     const isMobile = useMediaQuery("(max-width: 768px)");
     const items = [
-        {
-            id: 1,
-            image: 'https://unlimited-elements.com/wp-content/uploads/ac_assets/cover_flow_carousel/flowers1.jpeg',
-            title: 'Yellow Flowers',
-            text: 'The color yellow is primarily associated with spreading happiness and joy',
-            link1: '#',
-            link2: '#',
-        },
+        // {
+        //     id: 1,
+        //     image: 'https://unlimited-elements.com/wp-content/uploads/ac_assets/cover_flow_carousel/flowers1.jpeg',
+        //     title: 'Yellow ',
+        //     text: 'The color yellow is primarily associated with spreading happiness and joy',
+        //     link1: '#',
+        //     link2: '#',
+        // },
         {
             id: 2,
-            image: 'https://unlimited-elements.com/wp-content/uploads/ac_assets/cover_flow_carousel/flowers2.jpeg',
-            title: 'White Flowers',
-            text: 'Traditionally used in bridal bouquets or during memorial services',
-            link1: '#',
-            link2: '#',
+            image: '/images/project_img/project2.png',
+            title: 'Runoff',
+            text: 'Implements a ranked-choice voting algorithm, showcasing complex logic for real-world election systems.',
+            // link1: '#',
+            link2: 'https://github.com/nikhil-partap/CS50/tree/main/runoff',
         },
         {
             id: 3,
-            image: 'https://unlimited-elements.com/wp-content/uploads/ac_assets/cover_flow_carousel/flowers3.jpeg',
-            title: 'Pink Flowers',
-            text: 'Similar to red flowers, pink flowers have also grown to be a symbol of love',
-            link1: '#',
-            link2: '#',
+            image: '/images/project_img/project3.png',
+            title: 'Currency Converter',
+            text: 'A responsive web app that quickly converts currencies using real‑time exchange rates.',
+            link1: 'https://currency-converter-pi-eight-50.vercel.app/',
+            link2: 'https://github.com/nikhil-partap/Currency_Converter',
         },
         {
             id: 4,
@@ -54,19 +54,19 @@ const Projects = () => {
         },
         {
             id: 7,
-            image: 'https://unlimited-elements.com/wp-content/uploads/2021/08/flowers7-768x1152.jpeg',
-            title: 'Blue Flowers',
-            text: 'The soothing blue hues that many flowers possess are said to symbolize tranquility and peace',
-            link1: '#',
-            link2: '#',
+            image: '/images/project_img/project7.png',
+            title: 'Hash Table Spell Checker',
+            text: 'A high-performance command-line spell checker implementing a custom hash table data structure in C.',
+            // link1: '#',
+            link2: 'https://github.com/nikhil-partap/CS50--log/tree/main/week5_problems/speller',
         },
         {
             id: 8,
-            image: 'https://unlimited-elements.com/wp-content/uploads/2021/08/flowers8-768x512.jpeg',
-            title: 'Purple Flowers',
-            text: 'Purple flowers are commonly said to symbolize success and even royalty',
-            link1: '#',
-            link2: '#',
+            image: '/images/project_img/project8.png',
+            title: 'Recover',
+            text: 'Demonstrates low-level C skills by recovering JPEG files from raw memory data, highlighting file I/O and pointer mastery.',
+            // link1: '#',
+            link2: 'https://github.com/nikhil-partap/CS50/tree/main/recover',
         },
     ];
 
@@ -82,7 +82,7 @@ const Projects = () => {
             <p className="text-lg mb-19 text-gray-300 max-w-2xl mx-auto leading-relaxed">A showcase of my best code — clean, functional, and designed to impress.</p>
 
             {/* Carousel Container */}
-            <div className="relative w-full max-w-5xl h-[400px] md:h-[500px] overflow-hidden" style={{ perspective: '1000px' }}>
+            <div className="relative w-full max-w-7xl h-[450px] md:h-[500px] overflow-hidden" style={{ perspective: '1000px' }}>
                 {items.map((item, index) => {
                     const offset = index - currentIndex;
                     const absOffset = Math.abs(offset);
@@ -107,21 +107,23 @@ const Projects = () => {
                             onClick={() => !isCenter && handleSelect(index)}
                         >
                             <div className="w-full h-full bg-black text-white rounded-lg shadow-lg overflow-hidden">
-                                <img src={item.image} alt={item.title} className="w-full h-3/5 object-cover" />
+                                <img src={item.image} alt={item.title} className={`w-full object-cover ${isMobile ? 'h-[45%]' : 'h-[60%]'} `} />
                                 <div className="p-4 text-center">
                                     <h3 className="text-xl font-semibold ">{item.title}</h3>
                                     <p className="text-sm  mt-2">{item.text}</p>
-                                    <a
-                                        href={item.link1}
-                                        target='_blank'
-                                        className={`mr-3 inline-block px-4 py-2 bg-cyan-400 text-black rounded-lg font-medium hover:bg-cyan-300 transition-colors shadow ${isMobile ? "mt-2" : "mt-7"} `}
-                                    >
-                                        Live link
-                                    </a>
+                                    {item.link1 && (  // Only render if link1 exists and is truthy
+                                        <a
+                                            href={item.link1}
+                                            target='_blank'
+                                            className={`mr-3 inline-block px-4 py-2 bg-cyan-400 text-black rounded-lg font-medium hover:bg-cyan-300 transition-colors shadow ${isMobile ? "mt-2" : "mt-7"} `}
+                                        >
+                                            Live link
+                                        </a>
+                                    )}
                                     <a
                                         href={item.link2}
                                         target='_blank'
-                                        className="px-4 py-2 border border-cyan-400 text-cyan-400 rounded-lg font-medium hover:bg-cyan-400 hover:text-black transition-colors shadow"
+                                        className={`inline-block px-4 py-2 border border-cyan-400 text-cyan-400 rounded-lg font-medium hover:bg-cyan-400 hover:text-black transition-colors shadow ${isMobile ? "mt-2" : "mt-7"} `}
                                     >
                                         Code
                                     </a>
