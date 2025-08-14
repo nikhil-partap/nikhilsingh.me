@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLoaderData } from "react-router-dom";
 
 export default function Github() {
   const data = useLoaderData();
 
-  //   const [data, setData] = useState([]);
-  //   useEffect(() => {
-  //     fetch("https://api.github.com/users/nikhil-partap")
-  //       .then((Response) => Response.json())
-  //       .then((data) => {
-  //         setData(data);
-  //         console.log(data);
-  //       });
-  //   });
   return (
     <>
-      <div className=" text-center m-4 bg-black text-4xl rounded-2xl text-white p-4  ">
-        Github followers: {data.followers}
-        <img src={data.avatar_url} alt="Git picture" width={300} />
+      <div className="text-center m-4 bg-black text-4xl rounded-2xl text-white p-4">
+        GitHub followers: {data.followers}
+        <img src={data.avatar_url} alt="GitHub avatar" width={300} />
       </div>
     </>
   );
 }
 
+// Loader function for React Router route
 export const githubInfoLoader = async () => {
-  const response = await fetch('/api/github/users/nikhil-partap');
+  // Use Vite proxy in dev, real API URL in production (Vercel)
+  const apiBase = import.meta.env.PROD ? "https://api.github.com" : "/api/github";
+
+  const response = await fetch(`${apiBase}/users/nikhil-partap`);
+
+  if (!response.ok) {
+    throw new Error(`GitHub API fetch failed: ${response.status}`);
+  }
+
   return response.json();
 };

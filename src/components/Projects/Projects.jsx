@@ -30,9 +30,9 @@ const Projects = () => {
         },
         {
             id: 4,
-            image: 'https://unlimited-elements.com/wp-content/uploads/ac_assets/cover_flow_carousel/flowers4.jpeg',
-            title: 'Lavender Flowers',
-            text: 'Though to the eye purple and lavender may look similar, their meanings differ',
+            image: '/images/project_img/project4.png',
+            title: 'Portfolio Site',
+            text: 'A sleek, responsive portfolio made using HTML, CSS, JS with elegant design, smooth navigation, and optimized performance',
             link1: 'https://nikhil-partap.github.io/Website-Template/',
             link2: 'https://github.com/nikhil-partap/Website-Template',
         },
