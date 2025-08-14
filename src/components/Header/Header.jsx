@@ -15,7 +15,7 @@ export default function Header() {
 
           <div className="flex items-center lg:order-2">
 
-            <Link
+            {/* <Link
               to="#"
               className="
             text-cyan-400 
@@ -36,7 +36,7 @@ export default function Header() {
           "
             >
               Log in
-            </Link>
+            </Link> */}
 
             {/* Contact Me -> Solid + Neon Glow */}
             <Link

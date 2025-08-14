@@ -46,11 +46,11 @@ const Projects = () => {
         },
         {
             id: 6,
-            image: 'https://unlimited-elements.com/wp-content/uploads/ac_assets/cover_flow_carousel/flowers6.jpeg',
-            title: 'Pink Flowers',
-            text: 'The color pink can be found in flowers such as roses, lilies, carnations and azaleas.',
-            link1: '#',
-            link2: '#',
+            image: '/images/project_img/project6.png',
+            title: 'Personal Portfolio Website',
+            text: 'A sleek, modern portfolio site highlighting my journey as a B.Tech CS student and aspiring full-stack developer.',
+            link1: 'https://www.nikhilsingh.me/',
+            link2: 'https://github.com/nikhil-partap/nikhilsingh.me',
         },
         {
             id: 7,
