@@ -1,23 +1,92 @@
-import React from "react";
+import React, { useState } from 'react';
 
 export default function Contact() {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+        // Clear error on input change
+        setErrors(prev => ({ ...prev, [name]: '' }));
+    };
+
+    const validateForm = () => {
+        const newErrors = {};
+        if (!formData.firstName.trim() || formData.firstName.length < 2) {
+            newErrors.firstName = 'Please enter a valid first name (at least 2 characters)';
+        }
+        if (!formData.lastName.trim() || formData.lastName.length < 2) {
+            newErrors.lastName = 'Please enter a valid last name (at least 2 characters)';
+        }
+        if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            newErrors.email = 'Please enter a valid email address';
+        }
+        // Phone is optional, no validation
+        if (!formData.message.trim() || formData.message.length < 1) {
+            newErrors.message = 'Please enter a message (at least 10 characters)';
+        }
+        return newErrors;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const validationErrors = validateForm();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+
+        try {
+            // Replace with your actual form submission endpoint (e.g., Formspree URL)
+            const response = await fetch('https://formspree.io/f/xqalarwg', { // Update this URL
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setSubmitStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
+                setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (error) {
+            setSubmitStatus({ type: 'error', message: 'Sorry, there was an error sending your message. Please try again.' });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
-        <div className="" >
+        <div className="">
             <section
                 className="bg-black text-white pt-16 pb-40 bg-center bg-cover relative"
                 style={{ backgroundImage: "url('/images/contact_bg.png')" }}
             >
                 {/* Optional dark overlay for readability */}
                 <div className="inset-0 bg-black/70">
-
                     <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
-
                         {/* Left Contact Info */}
                         <div>
                             <h2 className="text-3xl font-bold text-cyan-400 mb-4">Get in touch</h2>
                             <p className="text-gray-300 mb-8">
-                                Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu.
-                                Sed ut tincidunt integer elementum id sem. Arcu sed malesuada et magna.
+                                I'm actively seeking opportunities for internships, freelance projects, and collaborative development work. Whether you have a project in mind, want to discuss technology, or are looking for a dedicated developer to join your team, I'd love to hear from you.
                             </p>
 
                             <dl className="space-y-6">
@@ -58,14 +127,14 @@ export default function Contact() {
                                                 strokeLinejoin="round"
                                             />
                                         </svg>
-                                        Telephone
+                                        Message
                                     </dt>
                                     <dd className="text-gray-400 ml-9">
                                         <a
-                                            href="tel:+1 (555) 234-5678"
+                                            href="https://www.instagram.com/nikhil_1245b/"
                                             className="hover:text-cyan-400 transition"
                                         >
-                                            +1 (555) 234-5678
+                                            instagram
                                         </a>
                                     </dd>
                                 </div>
@@ -92,7 +161,7 @@ export default function Contact() {
                                             href="mailto:hello@example.com"
                                             className="hover:text-cyan-400 transition"
                                         >
-                                            hello@example.com
+                                            [nikhilpartap.web@gmail.com](mailto:nikhilpartap.web@gmail.com)
                                         </a>
                                     </dd>
                                 </div>
@@ -100,23 +169,44 @@ export default function Contact() {
                         </div>
 
                         {/* Contact Form */}
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
+                            {submitStatus && (
+                                <div className={`p-4 mb-6 rounded-lg ${submitStatus.type === 'success'
+                                    ? 'bg-green-900/50 text-green-300 border border-green-700'
+                                    : 'bg-red-900/50 text-red-300 border border-red-700'
+                                    }`}>
+                                    {submitStatus.message}
+                                </div>
+                            )}
+
                             <div className="grid sm:grid-cols-2 gap-6">
                                 <div>
                                     <label htmlFor="first-name" className="block mb-2 text-sm font-medium">First name</label>
                                     <input
                                         id="first-name"
                                         type="text"
-                                        className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
+                                        name="firstName"
+                                        value={formData.firstName}
+                                        onChange={handleChange}
+                                        className={`w-full p-3 rounded-lg bg-gray-900 text-white border ${errors.firstName ? 'border-red-400' : 'border-gray-700'
+                                            } focus:border-cyan-400 focus:ring focus:ring-cyan-400/40`}
+                                        disabled={isSubmitting}
                                     />
+                                    {errors.firstName && <p className="mt-1 text-sm text-red-400">{errors.firstName}</p>}
                                 </div>
                                 <div>
                                     <label htmlFor="last-name" className="block mb-2 text-sm font-medium">Last name</label>
                                     <input
                                         id="last-name"
                                         type="text"
-                                        className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
+                                        name="lastName"
+                                        value={formData.lastName}
+                                        onChange={handleChange}
+                                        className={`w-full p-3 rounded-lg bg-gray-900 text-white border ${errors.lastName ? 'border-red-400' : 'border-gray-700'
+                                            } focus:border-cyan-400 focus:ring focus:ring-cyan-400/40`}
+                                        disabled={isSubmitting}
                                     />
+                                    {errors.lastName && <p className="mt-1 text-sm text-red-400">{errors.lastName}</p>}
                                 </div>
                             </div>
 
@@ -125,8 +215,14 @@ export default function Contact() {
                                 <input
                                     id="email"
                                     type="email"
-                                    className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    className={`w-full p-3 rounded-lg bg-gray-900 text-white border ${errors.email ? 'border-red-400' : 'border-gray-700'
+                                        } focus:border-cyan-400 focus:ring focus:ring-cyan-400/40`}
+                                    disabled={isSubmitting}
                                 />
+                                {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
                             </div>
 
                             <div>
@@ -134,8 +230,13 @@ export default function Contact() {
                                 <input
                                     id="phone-number"
                                     type="tel"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
                                     className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
+                                    disabled={isSubmitting}
                                 />
+                                {/* No error for phone as it's optional */}
                             </div>
 
                             <div>
@@ -143,15 +244,22 @@ export default function Contact() {
                                 <textarea
                                     id="message"
                                     rows="4"
-                                    className="w-full p-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-cyan-400 focus:ring focus:ring-cyan-400/40"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    className={`w-full p-3 rounded-lg bg-gray-900 text-white border ${errors.message ? 'border-red-400' : 'border-gray-700'
+                                        } focus:border-cyan-400 focus:ring focus:ring-cyan-400/40`}
+                                    disabled={isSubmitting}
                                 ></textarea>
+                                {errors.message && <p className="mt-1 text-sm text-red-400">{errors.message}</p>}
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full py-3 px-6 rounded-lg bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition focus:ring focus:ring-cyan-400/50"
+                                disabled={isSubmitting}
+                                className="w-full py-3 px-6 rounded-lg bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition focus:ring focus:ring-cyan-400/50 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                Send message
+                                {isSubmitting ? 'Sending...' : 'Send message'}
                             </button>
                         </form>
                     </div>
