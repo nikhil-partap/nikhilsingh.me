@@ -25,9 +25,9 @@ export default function Contact() {
         if (!formData.firstName.trim() || formData.firstName.length < 2) {
             newErrors.firstName = 'Please enter a valid first name (at least 2 characters)';
         }
-        if (!formData.lastName.trim() || formData.lastName.length < 2) {
-            newErrors.lastName = 'Please enter a valid last name (at least 2 characters)';
-        }
+        // if (!formData.lastName.trim() || formData.lastName.length < 0) {
+        //     newErrors.lastName = 'Please enter a valid last name (at least 2 characters)';
+        // }
         if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
             newErrors.email = 'Please enter a valid email address';
         }
