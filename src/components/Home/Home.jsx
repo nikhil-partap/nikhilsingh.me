@@ -58,7 +58,7 @@ export default function Home() {
             <section className="py-10 max-w-3xl mx-auto text-center">
                 <h2 className="text-xl font-semibold mb-2 text-cyan-400">About Me</h2>
                 <p className="text-gray-300">
-                    CS undergrad, deep into DSA and full-stack dev. I code at 4:30AM, obsessed with results. Let's ship something meaningful—fast.
+                    CS undergrad, deep into DSA and full-stack dev. obsessed with results. Let's ship something meaningful—fast.
                 </p>
             </section>
         </div>
