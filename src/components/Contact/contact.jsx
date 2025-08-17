@@ -108,7 +108,7 @@ export default function Contact() {
                                         Address
                                     </dt>
                                     <dd className="text-gray-400 ml-9">
-                                        545 Mavis Island<br />Chicago, IL 99191
+                                        Rajpura<br />Punjab, INDIA
                                     </dd>
                                 </div>
 
@@ -158,10 +158,10 @@ export default function Contact() {
                                     </dt>
                                     <dd className="text-gray-400 ml-9">
                                         <a
-                                            href="mailto:hello@example.com"
+                                            href="nikhilpartap.web@gmail.com"
                                             className="hover:text-cyan-400 transition"
                                         >
-                                            [nikhilpartap.web@gmail.com](mailto:nikhilpartap.web@gmail.com)
+                                            nikhilpartap.web@gmail.com
                                         </a>
                                     </dd>
                                 </div>
