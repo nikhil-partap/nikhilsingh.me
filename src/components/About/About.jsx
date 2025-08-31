@@ -94,6 +94,16 @@ export default function About() {
                       </li> */}
                     </ul>
                   </div>
+                  <div className="text-left">
+                    <p className="font-bold text-cyan-300 mb-1">
+                      ✅ Programing Lang:
+                    </p>
+                    <ul className="list-disc list-inside ml-4 space-y-1">
+                      <li>C (Advanced level)</li>
+                      <li>Basic Python </li>
+                      <li>JavaScript (Intermediate level)</li>
+                    </ul>
+                  </div>
 
                   <div className="text-left">
                     <p className="font-bold text-cyan-300 mb-1">
