@@ -1,5 +1,5 @@
 import React from "react";
-import {useMediaQuery} from "../../hooks/useMediaQuery";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 export default function About() {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -16,17 +16,15 @@ export default function About() {
             <img
               src="/images/about_img2.png"
               alt="Nikhil Singh avatar"
-              className={`mx-auto mb-8 object-cover rounded-full border-4 border-cyan-400 shadow-cyan-800 shadow-lg ${
-                isMobile ? "w-52 h-52" : "w-[482px] h-[482px]"
-              }`}
+              className={`mx-auto mb-8 object-cover rounded-full border-4 border-cyan-400 shadow-cyan-800 shadow-lg ${isMobile ? "w-52 h-52" : "w-[482px] h-[482px]"
+                }`}
             />
           </div>
           <div className=" flex flex-col md:flex-row gap-6   ">
             <div>
               <section
-                className={` max-w-3xl mx-auto text-center py-10 px-4 bg-black/60 rounded-3xl backdrop-blur-md shadow-xl ${
-                  isMobile ? "text-base" : "text-lg"
-                }`}
+                className={` max-w-3xl mx-auto text-center py-10 px-4 bg-black/60 rounded-3xl backdrop-blur-md shadow-xl ${isMobile ? "text-base" : "text-lg"
+                  }`}
               >
                 <h2 className="text-cyan-400 text-2xl font-extrabold mb-6 border-b-4 border-cyan-400 inline-block px-4">
                   About Me
@@ -64,9 +62,8 @@ export default function About() {
             </div>
             <div>
               <section
-                className={` max-w-3xl  mx-auto text-center py-10 px-4 bg-black/60 rounded-3xl backdrop-blur-md shadow-xl ${
-                  isMobile ? "text-base" : "text-lg"
-                }`}
+                className={` max-w-3xl  mx-auto text-center py-10 px-4 bg-black/60 rounded-3xl backdrop-blur-md shadow-xl ${isMobile ? "text-base" : "text-lg"
+                  }`}
               >
                 <h2 className="text-cyan-400 text-2xl font-extrabold mb-6 border-b-4 border-cyan-400 inline-block px-4">
                   Tech Stack
@@ -111,8 +108,7 @@ export default function About() {
                     </p>
                     <ul className="list-disc list-inside ml-4 space-y-1">
                       <li>
-                        MongoDB (basic NoSQL database integration, recently
-                        installed on EndeavourOS)
+                        MongoDB (basic NoSQL database integration)
                       </li>
                     </ul>
                   </div>
