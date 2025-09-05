@@ -1,5 +1,5 @@
 import React from "react";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
+import {useMediaQuery} from "../../hooks/useMediaQuery";
 
 export default function About() {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -16,15 +16,17 @@ export default function About() {
             <img
               src="/images/about_img2.png"
               alt="Nikhil Singh avatar"
-              className={`mx-auto mb-8 object-cover rounded-full border-4 border-cyan-400 shadow-cyan-800 shadow-lg ${isMobile ? "w-52 h-52" : "w-[482px] h-[482px]"
-                }`}
+              className={`mx-auto mb-8 object-cover rounded-full border-4 border-cyan-400 shadow-cyan-800 shadow-lg ${
+                isMobile ? "w-52 h-52" : "w-[482px] h-[482px]"
+              }`}
             />
           </div>
           <div className=" flex flex-col md:flex-row gap-6   ">
             <div>
               <section
-                className={` max-w-3xl mx-auto text-center py-10 px-4 bg-black/60 rounded-3xl backdrop-blur-md shadow-xl ${isMobile ? "text-base" : "text-lg"
-                  }`}
+                className={` max-w-3xl mx-auto text-center py-10 px-4 bg-black/60 rounded-3xl backdrop-blur-md shadow-xl ${
+                  isMobile ? "text-base" : "text-lg"
+                }`}
               >
                 <h2 className="text-cyan-400 text-2xl font-extrabold mb-6 border-b-4 border-cyan-400 inline-block px-4">
                   About Me
@@ -57,13 +59,24 @@ export default function About() {
                   others and aim to build a portfolio that reflects both my
                   technical abilities and my dedication to quality software
                   craftsmanship.
+                  <br />
+                  <br />
+                  <h3 className="text-cyan-400 text-2xl font-extrabold mb-6 border-b-4 border-cyan-400 inline-block px-4">
+                    Tech stack:(short one-line)
+                  </h3>
+                  <br />
+                  Tech stack: Node.js (v24) · Express.js · MongoDB (v8) ·
+                  Mongoose · React · Vite · Tailwind CSS (v4.1) · JavaScript
+                  (ES6+) · Postman · mongosh · Robo 3T · Git/GitHub · npm ·
+                  Nodemon
                 </p>
               </section>
             </div>
             <div>
               <section
-                className={` max-w-3xl  mx-auto text-center py-10 px-4 bg-black/60 rounded-3xl backdrop-blur-md shadow-xl ${isMobile ? "text-base" : "text-lg"
-                  }`}
+                className={` max-w-3xl  mx-auto text-center py-10 px-4 bg-black/60 rounded-3xl backdrop-blur-md shadow-xl ${
+                  isMobile ? "text-base" : "text-lg"
+                }`}
               >
                 <h2 className="text-cyan-400 text-2xl font-extrabold mb-6 border-b-4 border-cyan-400 inline-block px-4">
                   Tech Stack
@@ -72,23 +85,28 @@ export default function About() {
                   <div className="text-left">
                     <p className="font-bold text-cyan-300 mb-1">✅ Frontend:</p>
                     <ul className="list-disc list-inside ml-4 space-y-1">
-                      <li>HTML5, CSS3 (responsive, modern layouts)</li>
                       <li>
-                        JavaScript (ES6+) (DOM manipulation, async/await, fetch,
-                        etc.)
+                        React.js (hooks, components, props, JSX, state
+                        management)
                       </li>
-                      <li>React.js (components, props, state, JSX, hooks)</li>
-                      <li>Tailwind CSS </li>
+                      <li>Vite (modern dev bundler, blazing-fast builds)</li>
+                      <li>
+                        Tailwind CSS v4.1 (utility-first, responsive design)
+                      </li>
+                      <li>JavaScript (ES6+, async/await, fetch, DOM APIs)</li>
+                      <li>HTML5 & CSS3 (semantic, responsive layouts)</li>
                     </ul>
                   </div>
 
                   <div className="text-left">
                     <p className="font-bold text-cyan-300 mb-1">✅ Backend:</p>
                     <ul className="list-disc list-inside ml-4 space-y-1">
-                      <li>Node.js (basic APIs)</li>
-                      {/* <li>
-                        Express.js (routing, middleware, REST API handling)
-                      </li> */}
+                      <li>Node.js (v24, modern ESM runtime)</li>
+                      <li>Express.js (REST APIs, middleware, routing)</li>
+                      <li>
+                        Mongoose (MongoDB ODM with schema validation &
+                        geospatial queries)
+                      </li>
                     </ul>
                   </div>
                   <div className="text-left">
@@ -96,34 +114,38 @@ export default function About() {
                       ✅ Programing Lang:
                     </p>
                     <ul className="list-disc list-inside ml-4 space-y-1">
-                      <li>C (Advanced level)</li>
-                      <li>Basic Python </li>
-                      <li>JavaScript (Intermediate level)</li>
+                      <li>JavaScript (intermediate → advanced)</li>
+                      <li>C (strong in data structures & problem solving)</li>
+                      <li>Python (basic scripting)</li>
                     </ul>
                   </div>
 
                   <div className="text-left">
-                    <p className="font-bold text-cyan-300 mb-1">
-                      ✅ Database:(Learning)
-                    </p>
+                    <p className="font-bold text-cyan-300 mb-1">✅ Database:</p>
                     <ul className="list-disc list-inside ml-4 space-y-1">
+                      <li>MongoDB (v8) — document-oriented NoSQL DB</li>
+                      <li>mongosh (interactive shell)</li>
                       <li>
-                        MongoDB (basic NoSQL database integration)
+                        Robo 3T / MongoDB Compass (GUI tools for DB management)
                       </li>
                     </ul>
                   </div>
 
                   <div className="text-left">
                     <p className="font-bold text-cyan-300 mb-1">
-                      ✅ Other Skills:
+                      ✅ Tools & Workflow:
                     </p>
                     <ul className="list-disc list-inside ml-4 space-y-1">
                       <li>
-                        Git & GitHub (version control, deployments via GitHub
-                        Pages)
+                        Git & GitHub (version control, GitHub Pages deployment)
                       </li>
-                      <li>Deployment on Render (backend hosting)</li>
-                      <li>PWA basics</li>
+                      <li>Postman (API testing)</li>
+                      <li>Nodemon (hot-reload dev server)</li>
+                      <li>
+                        Deployment: Render/railway (backend hosting),
+                        Vercel/Netlify (frontend hosting)
+                      </li>
+                      <li>PWA basics (offline-ready apps)</li>
                     </ul>
                   </div>
                 </div>
