@@ -1,5 +1,5 @@
 import React from "react";
-import {useMediaQuery} from "../../hooks/useMediaQuery";
+import {useMediaQuery} from "../hooks/useMediaQuery";
 
 export default function About() {
   const isMobile = useMediaQuery("(max-width: 768px)");

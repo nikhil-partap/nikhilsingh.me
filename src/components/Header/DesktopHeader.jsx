@@ -1,6 +1,4 @@
-import react from "react";
 import {Link, NavLink} from "react-router-dom";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 
 export default function Header() {
   return (

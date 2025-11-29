@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import {useLoaderData} from "react-router-dom";
 
 export default function Github() {
   const data = useLoaderData();
@@ -15,9 +15,12 @@ export default function Github() {
 }
 
 // Loader function for React Router route
+// eslint-disable-next-line react-refresh/only-export-components
 export const githubInfoLoader = async () => {
   // Use Vite proxy in dev, real API URL in production (Vercel)
-  const apiBase = import.meta.env.PROD ? "https://api.github.com" : "/api/github";
+  const apiBase = import.meta.env.PROD
+    ? "https://api.github.com"
+    : "/api/github";
 
   const response = await fetch(`${apiBase}/users/nikhil-partap`);
 
