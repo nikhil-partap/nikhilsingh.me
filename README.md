@@ -1,4 +1,4 @@
-link - nikhilsingh.me 
+link- https://www.nikhilsingh.me/
 
 # React + Vite
 
